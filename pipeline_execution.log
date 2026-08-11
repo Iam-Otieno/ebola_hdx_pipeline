@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "C:\Users\John Otieno\OneDrive\Desktop\ebola_hdx_pipeline\pipeline.py", line 188, in <module>
+    raw_csv_path = extract_hdx_data(DATASET_SLUG)
+  File "C:\Users\John Otieno\OneDrive\Desktop\ebola_hdx_pipeline\pipeline.py", line 24, in extract_hdx_data
+    print("\U0001f680 Starting HDX Extraction Pipeline...")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\John Otieno\OneDrive\Desktop\ebola_hdx_pipeline\pipeline.py", line 199, in <module>
+    print(f"\n\u274c PIPELINE FAILED: {str(e)}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+­ƒÜÇ Starting HDX Extraction Pipeline...
+­ƒöî Connecting to HDX API...
+Ô£à Connected to HDX API.
+­ƒöì Fetching dataset metadata for slug: 'republique-democratique-du-congo-cas-et-deces-d-ebola'...
+Ô¼ç´©Å Downloading resource: drc_ebola_cases_consolidated...
+­ƒÄë Extract Success! Raw CSV saved locally to: downloads\drc_ebola_cases_consolidated12.csv
+
+ÔÜÖ´©Å Starting Data Transformation Phase...
+Ô£à Transform Success! Processed 4,880 rows through 2026-08-04.
+
+­ƒÆ¥ Starting Load & Sync Phase for workbook: 'DRC_Ebola_Epidemiology_Dashboard_and_Analysis.xlsx'...
+
+ÔØî PERMISSION ERROR: Please close 'DRC_Ebola_Epidemiology_Dashboard_and_Analysis.xlsx' in Microsoft Excel and re-run!
