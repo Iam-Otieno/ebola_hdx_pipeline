@@ -40,6 +40,7 @@ pydantic_core==2.46.4
 Pygments==2.20.0
 pyphonetics==0.5.3
 python-dateutil==2.9.0.post0
+plotly==5.15.0
 python-slugify==8.0.4
 PyYAML==6.0.3
 ratelimit==2.2.1
@@ -55,6 +56,8 @@ shellingham==1.5.4
 simpleeval==1.0.7
 simplejson==4.1.1
 six==1.17.0
+streamlit==1.30.0
+streamlit-logger==0.1.2
 sphinxcontrib-napoleon==0.7
 tableschema-to-template==0.0.13
 tabulate==0.10.0
