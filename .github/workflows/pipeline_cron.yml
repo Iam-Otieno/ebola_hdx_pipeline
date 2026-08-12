@@ -1,0 +1,37 @@
+name: Automated HDX Ebola ETL Pipeline
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC (03:00 AM EAT)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute Pipeline Script
+        run: |
+          python pipeline.py
+
+      - name: Commit and Push Updated Data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add DRC_Ebola_Epidemiology_Dashboard_and_Analysis.xlsx
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update epidemiological data model [skip ci]"
+          git push
